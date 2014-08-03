@@ -3,17 +3,17 @@ package Logica;
 
 //Clase Suma.
 public class vsuma {
-    int resultado;
+    Double resultado, resultado2;
     //metodo sumar de dos numeros.
-    public int vsuma (int valor1, int valor2){
+    public Double vsuma (Double valor1, Double valor2){
         resultado=valor1+valor2;
         return resultado;
         
     }
 //    metodo restar de dos numeros.
-    public int restar (int valor1, int valor2){
-        resultado=valor1-valor2;
-        return resultado;
+    public Double restar (Double valor1, Double valor2){
+        resultado2=valor1-valor2;
+        return resultado2;
     }
     
 }

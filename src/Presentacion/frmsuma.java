@@ -22,6 +22,7 @@ public class frmsuma extends javax.swing.JFrame {
     public frmsuma() {
         initComponents();
         txtresultado.setEnabled(false);
+        txtresta.setEnabled(false);
     }
     
 
@@ -44,6 +45,8 @@ public class frmsuma extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
         btnlimpiar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtresta = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +82,7 @@ public class frmsuma extends javax.swing.JFrame {
 
         jLabel2.setText("Valor 2:");
 
-        jLabel3.setText("Resultado:");
+        jLabel3.setText("Suma:");
 
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Presentacion/cerrar.png"))); // NOI18N
         btnsalir.setText("Salir");
@@ -97,6 +100,8 @@ public class frmsuma extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Resta:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -108,22 +113,28 @@ public class frmsuma extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtvalor2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtresultado, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtvalor1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtresta, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(13, 13, 13)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtvalor2)
+                            .addComponent(txtresultado)
+                            .addComponent(txtvalor1))))
+                .addGap(48, 48, 48))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtvalor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -136,6 +147,10 @@ public class frmsuma extends javax.swing.JFrame {
                     .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtresta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnlimpiar)
                     .addComponent(btncalcular)
@@ -150,9 +165,7 @@ public class frmsuma extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -162,11 +175,13 @@ public class frmsuma extends javax.swing.JFrame {
         // TODO add your handling code here:
         vsuma su= new vsuma();
         try {
-            int valor1= Integer.parseInt(txtvalor1.getText());
-            int valor2=Integer.parseInt(txtvalor2.getText());
-            int resultado= su.vsuma(valor1, valor2);
+            Double valor1= Double.parseDouble(txtvalor1.getText());
+            Double valor2=Double.parseDouble(txtvalor2.getText());
+            Double resultado= su.vsuma(valor1, valor2);
+            Double resultado2=su.restar(valor1, valor2);
 
             txtresultado.setText(String.valueOf(resultado));
+            txtresta.setText(String.valueOf(resultado2));
 
         }
         catch (Exception e) {
@@ -244,7 +259,9 @@ public class frmsuma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtresta;
     private javax.swing.JTextField txtresultado;
     private javax.swing.JTextField txtvalor1;
     private javax.swing.JTextField txtvalor2;

@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author 20
+ * @author juliocesar
  */
 public class vsumaTest {
     
@@ -44,23 +44,27 @@ public class vsumaTest {
     @Test
     public void testVsuma() {
         System.out.println("vsuma");
-        int valor1 = 4;
-        int valor2 = 5;
+        Double valor1 = 5.0;
+        Double valor2 = 3.0;
         vsuma instance = new vsuma();
-        int expResult =9;
-        int result = instance.vsuma(valor1, valor2);
+        Double expResult = 8.0;
+        Double result = instance.vsuma(valor1, valor2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of restar method, of class vsuma.
+     */
     @Test
-    public void testrestar() {
+    public void testRestar() {
         System.out.println("restar");
-        int valor1 = 5;
-        int valor2 = 4;
+        Double valor1 = 5.0;
+        Double valor2 = 4.0;
         vsuma instance = new vsuma();
-        int expResult =1;
-        int result = instance.restar(valor1, valor2);
+        Double expResult = 1.0;
+        Double result = instance.restar(valor1, valor2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
